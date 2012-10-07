@@ -2,11 +2,11 @@ WEB2.0 Detective is a small package of scripts for web application analysis.
 
 It includes:
 
-+the module for finding the parameters, that the application handles.
-+the module for detection web-server software, testing for several configuration, dead code and information disclosure vulnerabilities
-+the script for grabbing the dictionary for Arguments Finder module
-+the sample dictionary, made by args_grabber.php
-+the module for searching (temporary) file copies, left, for example, by various text editors
++module for finding the parameters, that the application handles.
++module for detection web-server software, testing for several configuration, dead code and information disclosure vulnerabilities
++script for grabbing the dictionary for Arguments Finder module
++sample dictionary, made by args_grabber.php
++module for searching (temporary) file copies, left, for example, by various text editors
 
 Currently, there're tests for typical Apache, NginX, Microsoft-IIS, PHP, ASP.NET, Ruby on Rails issues or vulnerabilities.
 One of the main advantages of this tool is a small number of requests sent to the server.
