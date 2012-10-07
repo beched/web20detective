@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Web2.0 Detective v. 0.1</title>
+</head>
+<body>
+<b>ABOUT</b><br>
+There're currently 2 modules in the package: Arguments Finder (argsfind.py) and Software Detector (softdetect.py).<br>
+Arguments Finder can be used to fuzz an application in order to find its arguments.<br>
+Software Detector reveals an information from the server response and does several tests for configurational vulnerabilities, dead code and information disclosure flaws.<br>
+Backup fuzzer searches for temporary copies of the file<br><br>
+<b>USAGE</b><br>
+module.py --param1 value1 --param2 value2<br>
+The main class of this software is common.py. It contains, for example, a makereq() method for sending requests with urllib.<br>
+There're parameters, that are common for all modules.<br>
+allowed_params = [ 'ajax', 'cut', 'sleep' ]<br>
+If you'll type --ajax 1, the requests will be sent with the header X-Requested-With = XMLHttpRequest.<br>
+You can type --sleep N, where N is the number of seconds to sleep before each request.<br>
+You can specify the --cut regexp, and the content on the received page will be cut according to your regexp.<br><br>
+<i>Usage of Arguments Finder</i><br>
+argsfind.py --url http://example.com [--mode g|p|c --fill 'foo' --base '/path/to/base']<br>
+--url is the only required argument. It defines the target URL.<br>
+--mode default value is 'g'. It stands for GET method, p stands for POST, c -- for COOKIE.<br>
+--fill default value is '1'. It defines, which value will be put into parameters.<br>
+--base default value is bases/argsbase.txt. It defines a path to the dictionary with parameter names.<br><br>
+<i>Usage of Software Detector</i><br>
+softdetect.py --url http://example.com [--args foo,bar]<br>
+--url is the only required argument. It defines the target URL.<br>
+--args argument is required only for the one PHP dead code test. Script will ask you for this parameter, if it is needed. You should specify the list of parameters, that the target has.<br><br>
+<i>Usage of Backup Fuzzer</i><br>
+fuzzbackup.py --url http://example.com/script.php<br>
+<b>MISC</b><br>
+There's the args_grabber.php script in misc directory.<br>
+Its purpose is to parse PHP source codes and collect the parameter names for the dictionary there.<br>
+An output is appended to bases/argsbase.txt<br>
+The usage is simple: args_grabber.php /path/to/php/sources<br>
+In config.py you can specify additional headers, that would be sent in each request.
+<body>
+</html>
